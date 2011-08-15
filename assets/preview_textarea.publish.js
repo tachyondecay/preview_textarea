@@ -6,12 +6,17 @@ jQuery(document).ready(function($) {
 	/*
 	 * Add a "Preview" link next to each textarea, as well as divs we'll be using to store stuff
 	 */
-	$('body').append(
-		$(document.createElement('div')).attr('id','preview-textarea')
-			
-	).append(
-		$(document.createElement('div')).attr('id','preview-textarea-overlay')
-	);
+	$('body')
+		.append(
+			$(document.createElement('div')).attr('id','preview-textarea')
+				.append(
+					$(document.createElement('div')).attr('id','preview-textarea-title')
+				).append(
+					$(document.createElement('div')).attr('id','preview-textarea-content')
+				)
+		).append(
+			$(document.createElement('div')).attr('id','preview-textarea-overlay')
+		);
 
 	$('textarea[class!=""]').before(
 		$(document.createElement('a')).text('Preview').addClass('preview-textarea-button')
@@ -35,8 +40,12 @@ jQuery(document).ready(function($) {
 				success: function(xml) {
 					var windowHeight = $(window).height();
 					var windowWidth = $(window).width();
+					
+					var fieldLabel = thePackage.parent().clone().children().remove().end().text();
+					
+					$('#preview-textarea-title').html('Preview of ' + fieldLabel + ' using the ' + $(xml).find("formatter").text() + ' formatter <a title="Close preview">Close</a>');
 
-					$('#preview-textarea').html(($(xml).find("preview").html()));
+					$('#preview-textarea-content').html(($(xml).find("preview").html()));
 					var previewTop = windowHeight/2 - $('#preview-textarea').height()/2;
 					if(previewTop < 0) { previewTop = 100; }
 					$('#preview-textarea').css({
@@ -46,9 +55,9 @@ jQuery(document).ready(function($) {
 
 					var overlayHeight = ($(document).height() > $('#preview-textarea').height()) ? $(document).height() : $('#preview-textarea').height() + 200;
 
-					$('#preview-textarea-overlay').width(windowWidth).height(overlayHeight).fadeTo('fast',0.8);
+					$('#preview-textarea-overlay').width(windowWidth).height(overlayHeight).fadeTo('fast',0.75);
 					$('#preview-textarea').fadeIn('fast');
-					$('#preview-textarea, #preview-textarea-overlay').click(function() {
+					$('#preview-textarea-title a, #preview-textarea-overlay').click(function() {
 						$('#preview-textarea, #preview-textarea-overlay').fadeOut();
 					});
 				},

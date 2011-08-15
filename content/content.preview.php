@@ -6,10 +6,17 @@
 	class contentExtensionPreview_textareaPreview extends AjaxPage {
 
 		public function view() {
-			$preview = new XMLElement('preview');
+			
 
 			$fM = new TextformatterManager($this);
 			$formatter = $fM->create($_POST['formatter']);
+			$formatter_about = $formatter->about();
+
+			$format_name = new XMLElement('formatter');
+			$format_name->setValue($formatter_about['name']);
+			$this->_Result->appendChild($format_name);
+
+			$preview = new XMLElement('preview');
 			$preview->setValue($formatter->run($_POST['formatText']));
 			$this->_Result->appendChild($preview);
 		}

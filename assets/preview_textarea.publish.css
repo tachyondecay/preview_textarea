@@ -5,15 +5,18 @@ a.preview-textarea-button {
 
 #preview-textarea {
 	background: #FFF;
-	border: 1px solid #DDDDCC;
+	border: 2px solid #333;
 	display: none;
-	font-size: 16px;
+	font-size: 14px;
 	min-height: 200px;
-	max-width: 30em;
-	padding: 20px;
+	max-width: 50em;
 	position: absolute;
 	width: 50%;
 	z-index: 9999;
+}
+
+#preview-textarea-content {
+	padding: 20px;
 }
 
 #preview-textarea-overlay {
@@ -23,4 +26,23 @@ a.preview-textarea-button {
 	position: absolute;
 	top: 0;
 	z-index: 9990;
+}
+
+#preview-textarea-title {
+	background: #353530;
+	color: #FFF;
+	font-size: 12px;
+	padding: 5px;
+}
+
+#preview-textarea-title a {
+	color: #FFF;
+	float: right;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#preview-textarea-title a:hover {
+	color: #CCCCBB;
 }
