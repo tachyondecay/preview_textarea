@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
 	/*
 	 * Add a "Preview" link next to each textarea, as well as divs we'll be using to store stuff
 	 */
+	var ownerDocument = top.document;
 	$('body')
 		.append(
 			$(document.createElement('div')).attr('id','preview-textarea')
@@ -38,27 +39,27 @@ jQuery(document).ready(function($) {
 					formatter: thePackage.attr('class')
 				},
 				success: function(xml) {
-					var windowHeight = $(window).height();
-					var windowWidth = $(window).width();
+					var windowHeight = $(window.top).height();
+					var windowWidth = $(window.top).width();
 					
 					var fieldLabel = thePackage.parent().clone().children().remove().end().text();
 					
-					$('#preview-textarea-title').html('Preview of ' + fieldLabel + ' using the ' + $(xml).find("formatter").text() + ' formatter <a title="Close preview">Close</a>');
+					$('#preview-textarea-title', ownerDocument).html('Preview of ' + fieldLabel + ' using the ' + $(xml).find("formatter").text() + ' formatter <a title="Close preview">Close</a>');
 
-					$('#preview-textarea-content').html(($(xml).find("preview").html()));
-					var previewTop = windowHeight/2 - $('#preview-textarea').height()/2;
+					$('#preview-textarea-content', ownerDocument).html(($(xml).find("preview").html()));
+					var previewTop = windowHeight/2 - $('#preview-textarea', ownerDocument).height()/2;
 					if(previewTop < 0) { previewTop = 100; }
-					$('#preview-textarea').css({
+					$('#preview-textarea', ownerDocument).css({
 						'top': previewTop,
-						'left': windowWidth/2 - $('#preview-textarea').width()/2
+						'left': windowWidth/2 - $('#preview-textarea', ownerDocument).width()/2
 						});
 
-					var overlayHeight = ($(document).height() > $('#preview-textarea').height()) ? $(document).height() : $('#preview-textarea').height() + 200;
+					var overlayHeight = ($(ownerDocument).height() > $('#preview-textarea', ownerDocument).height()) ? $(ownerDocument).height() : $('#preview-textarea', ownerDocument).height() + 200;
 
-					$('#preview-textarea-overlay').width(windowWidth).height(overlayHeight).fadeTo('fast',0.75);
-					$('#preview-textarea').fadeIn('fast');
-					$('#preview-textarea-title a, #preview-textarea-overlay').click(function() {
-						$('#preview-textarea, #preview-textarea-overlay').fadeOut();
+					$('#preview-textarea-overlay', ownerDocument).width(windowWidth).height(overlayHeight).fadeTo('fast',0.75);
+					$('#preview-textarea', ownerDocument).fadeIn('fast');
+					$('#preview-textarea-title a, #preview-textarea-overlay', ownerDocument).click(function() {
+						$('#preview-textarea, #preview-textarea-overlay', ownerDocument).fadeOut();
 					});
 				},
 				cache: false
