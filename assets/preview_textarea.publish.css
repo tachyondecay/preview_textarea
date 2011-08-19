@@ -46,3 +46,49 @@ a.preview-textarea-button {
 #preview-textarea-title a:hover {
 	color: #CCCCBB;
 }
+
+/* Override Symphony backend styles for the previewed text */
+
+#preview-textarea blockquote {
+	margin: 1em 3em;
+}
+
+#preview-textarea del {
+	text-decoration: line-through;
+}
+
+#preview-textarea dd {
+	margin-left: 15px;
+}
+
+#preview-textarea dt {
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+#preview-textarea ins {
+	color: #8B1A1A;
+	font-style: italic;
+}
+
+#preview-textarea ol {
+	list-style: decimal;
+}
+
+#preview-textarea ul {
+	list-style: disc;
+}
+
+#preview-textarea small {
+	font-size: x-small;
+}
+
+#preview-textarea sub {
+	font-size: XX-small;
+	vertical-align: sub;
+}
+
+#preview-textarea sup {
+	font-size: XX-small;
+	vertical-align: super;
+}
