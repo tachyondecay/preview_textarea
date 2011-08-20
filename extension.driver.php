@@ -5,8 +5,8 @@
 		public function about() {
 			return array(
 				'name' => 'Preview Textarea',
-				'version' => '1.0.1',
-				'release-date' => '2011-08-19',
+				'version' => '1.0.2',
+				'release-date' => '2011-08-20',
 				'author' => array(
 					'name' => 'Ben Babcock',
 					'website' => 'http://tachyondecay.net/',

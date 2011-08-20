@@ -4,9 +4,9 @@ Generates a live preview lightbox of the formatted version of a textarea while e
 
 I've tested this extension with Symphony's default textarea field as well as Rowan's [text box](https://github.com/rowan-lewis/textboxfield) field. If you encounter issues with other textarea fields, please let me know.
 
-- Version: 1.0.1
+- Version: 1.0.2
 - Author: Ben Babcock <ben@tachyondecay.net>
-- Updated: August 19, 2011
+- Updated: August 20, 2011
 - GitHub Repository: https://github.com/tachyondecay/preview_textarea
 
 ## Installation & Use
@@ -19,10 +19,14 @@ You can always install the latest version through git: `git clone git://github.c
 
 ## Changelog
 
-### Version 1.0.1 (August 19, 2011)
+### 1.0.2 (August 20, 2011)
+
+- [#3](https://github.com/tachyondecay/preview_textarea/pull/3): Changed jQuery selector to work with 'MarkItUp' enhanced fields. (Thanks to [@henrysingleton](https://github.com/henrysingleton))
+
+### 1.0.1 (August 19, 2011)
 
 - [#2](https://github.com/tachyondecay/preview_textarea/issues/2): Override some of the backend styles for the preview box.
 
-### Version 1.0 (August 16, 2011)
+### 1.0 (August 16, 2011)
 
 - Initial release.
