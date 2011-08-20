@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 
 	$('a.preview-textarea-button').click(function(event) {
 		event.preventDefault();
-		var thePackage = $(this).siblings('textarea');
+		var thePackage = $(this).parent().find('textarea');
 		if (thePackage.val().length == 0) {
 			$(this).after('&#160;<strong>This textarea is empty!</strong>').next().delay(5000).fadeOut('slow');
 		}
