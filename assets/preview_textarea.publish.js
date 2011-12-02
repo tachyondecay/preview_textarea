@@ -8,7 +8,7 @@
 jQuery(document).ready(function($) {
 	// Add a "Preview" link next to each textarea, as well as divs we'll be using to store stuff
 	$('body').append('<div id="preview-textarea"><div id="preview-textarea-title"></div><div id="preview-textarea-content"></div></div><div id="preview-textarea-overlay"></div>');
-	$('textarea').before('<a class="preview-textarea-button">Preview</a>');
+	$('textarea[class!=""]').before('<a class="preview-textarea-button">Preview</a>');
 
 	$('a.preview-textarea-button').click(function(event) {
 		event.preventDefault();
