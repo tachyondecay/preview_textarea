@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="preview_textarea" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Preview Textarea</name>
+	<description>Generates a live preview lightbox of the formatted version of a textarea while editing an entry.</description>
+	<repo type="github">https://github.com/tachyondecay/preview_textarea</repo>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/75608/</url>
+	<types>
+		<type>Interface</type>
+		<type>Workflow</type>
+	</types>
+	<authors>
+		<author>
+			<name github="tachyondecay" symphony="tachyondecay" twitter="tachyondecay">Ben Babcock</name>
+			<website>http://tachyondecay.net/</website>
+		</author>
+	</authors>
+	<media>
+		<item type="image" url="http://symphonyextensions.com/tachyondecay/preview_textarea/media/preview_textarea.png">Preview Textarea: Generates a live preview lightbox of the formatted version of a textarea while editing an entry.</item>
+	</media>
+	<releases>
+		<release version="1.0.2" date="2011-08-20">
+		<![CDATA[
+			- [#3](https://github.com/tachyondecay/preview_textarea/pull/3): Changed jQuery selector to work with 'MarkItUp' enhanced fields. (Thanks to [@henrysingleton](https://github.com/henrysingleton))
+		]]>
+		</release>
+		<release version="1.0.1" date="2011-08-19">
+		<![CDATA[
+			- [#2](https://github.com/tachyondecay/preview_textarea/issues/2): Override some of the backend styles for the preview box.
+		]]>
+		</release>
+		<release version="1.0.0" date="2011-08-16" min="2.2" max="2.2.x" />
+	</releases>
+</extension>
