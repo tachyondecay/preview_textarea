@@ -5,8 +5,8 @@
 		public function about() {
 			return array(
 				'name' => 'Preview Textarea',
-				'version' => '1.0.2',
-				'release-date' => '2011-08-20',
+				'version' => '1.0.3',
+				'release-date' => '2011-12-28',
 				'author' => array(
 					'name' => 'Ben Babcock',
 					'website' => 'http://tachyondecay.net/',
@@ -36,6 +36,7 @@
 				// Let the jQuery magic flow 
 				if($context['oPage'] instanceof contentPublish) {
 					Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/preview_textarea/assets/preview_textarea.publish.css', 'screen', 100, false);
+					Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/preview_textarea/assets/preview_textarea.user.css', 'screen', 1000, false);
 					Administration::instance()->Page->addScriptToHead(URL . '/extensions/preview_textarea/assets/preview_textarea.publish.js', 100, false);
 				}
 			}

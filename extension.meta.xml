@@ -18,6 +18,11 @@
 		<item type="image" url="http://symphonyextensions.com/tachyondecay/preview_textarea/media/preview_textarea.png">Preview Textarea: Generates a live preview lightbox of the formatted version of a textarea while editing an entry.</item>
 	</media>
 	<releases>
+		<release version="1.0.3" date="2011-12-28">
+		<![CDATA[
+			- [#5](https://github.com/tachyondecay/preview_textarea/issues/5): Users can override the lightbox's default styling by editing a custom CSS file.
+		]]>
+		</release>
 		<release version="1.0.2" date="2011-08-20">
 		<![CDATA[
 			- [#3](https://github.com/tachyondecay/preview_textarea/pull/3): Changed jQuery selector to work with 'MarkItUp' enhanced fields. (Thanks to [@henrysingleton](https://github.com/henrysingleton))
@@ -28,6 +33,6 @@
 			- [#2](https://github.com/tachyondecay/preview_textarea/issues/2): Override some of the backend styles for the preview box.
 		]]>
 		</release>
-		<release version="1.0.0" date="2011-08-16" min="2.2" max="2.2.x" />
+		<release version="1.0.0" date="2011-08-16" min="2.2" max="2.3.x" />
 	</releases>
 </extension>
