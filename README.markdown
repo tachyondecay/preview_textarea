@@ -4,9 +4,9 @@ Generates a live preview lightbox of the formatted version of a textarea while e
 
 I've tested this extension with Symphony's default textarea field as well as Rowan's [text box](https://github.com/rowan-lewis/textboxfield) field. If you encounter issues with other textarea fields, please let me know.
 
-- Version: 1.0.3
+- Version: 1.1
 - Author: Ben Babcock <ben@tachyondecay.net>
-- Updated: December 28, 2011
+- Updated: May 9, 2012
 - GitHub Repository: https://github.com/tachyondecay/preview_textarea
 
 ## Installation & Use
@@ -20,6 +20,10 @@ You can always install the latest version through git: `git clone git://github.c
 If you want to change the styling on the preview, edit `assets/preview_textarea.user.css` and add your own styles.
 
 ## Changelog
+
+### 1.1 (May 9, 2012)
+
+- Extension now uses the static `TextFormatterManager` available as of Symphony 2.3. No longer compatible with Symphony 2.2.x.
 
 ### 1.0.3 (December 28, 2011)
 

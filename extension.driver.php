@@ -1,21 +1,6 @@
 <?php
 
 	Class Extension_Preview_Textarea extends Extension {
-
-		public function about() {
-			return array(
-				'name' => 'Preview Textarea',
-				'version' => '1.0.3',
-				'release-date' => '2011-12-28',
-				'author' => array(
-					'name' => 'Ben Babcock',
-					'website' => 'http://tachyondecay.net/',
-					'email' => 'ben@tachyondecay.net',
-				),
-				'description' => 'Preview the formatted version of a textbox while editing an entry.'
-			);
-		}
-
 		public function getSubscribedDelegates() {
 			return array(
 				array(

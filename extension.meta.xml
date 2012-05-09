@@ -18,6 +18,11 @@
 		<item type="image" url="http://symphonyextensions.com/tachyondecay/preview_textarea/media/preview_textarea.png">Preview Textarea: Generates a live preview lightbox of the formatted version of a textarea while editing an entry.</item>
 	</media>
 	<releases>
+		<release version="1.1" date="2012-05-09" min="2.3">
+		<![CDATA[
+			- Extension now uses the static `TextFormatterManager` available as of Symphony 2.3.
+		]]>
+		</release>
 		<release version="1.0.3" date="2011-12-28">
 		<![CDATA[
 			- [#5](https://github.com/tachyondecay/preview_textarea/issues/5): Users can override the lightbox's default styling by editing a custom CSS file.
