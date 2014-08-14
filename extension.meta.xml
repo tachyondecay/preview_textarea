@@ -18,7 +18,7 @@
 		<item type="image" url="http://symphonyextensions.com/tachyondecay/preview_textarea/media/preview_textarea.png">Preview Textarea: Generates a live preview lightbox of the formatted version of a textarea while editing an entry.</item>
 	</media>
 	<releases>
-		<release version="1.1.1" date="2012-08-26">
+		<release version="1.1.1" date="2012-08-26" max="2.4.x">
 		<![CDATA[
 			- [#6](https://github.com/tachyondecay/preview_textarea/issues/6): JS error caused by unexpected DOM manipulation from other extensions.
 		]]>
