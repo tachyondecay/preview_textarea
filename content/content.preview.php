@@ -1,9 +1,9 @@
 <?php
 
-	require_once(TOOLKIT . '/class.ajaxpage.php');
+	require_once(TOOLKIT . '/class.jsonpage.php');
 	require_once(TOOLKIT . '/class.textformattermanager.php');
 	
-	class contentExtensionPreview_textareaPreview extends AjaxPage {
+	class contentExtensionPreview_textareaPreview extends JSONPage {
 
 		public function view() {
 			// Determine which formatter to use
@@ -13,23 +13,19 @@
 			$formatter_handle = array_pop(array_intersect(array_keys(TextformatterManager::listAll()), explode(' ', $_POST['formatter'])));
 
 			// We pass the full formatter name back for use in the preview display
-			$format_name = new XMLElement('formatter');
-			$preview = new XMLElement('preview');
+			$response = array(
+				'formatter' => '',
+				'preview' => ''
+				);
 
-			if(empty($formatter_handle)) {
-				$format_name->setValue('None');
-				$preview->setValue($_POST['formatText']);
-			}
-			else {
+			if(!empty($formatter_handle)) {
 				$formatter = TextformatterManager::create($formatter_handle);
 				$formatter_about = $formatter->about();
 
-				$format_name->setValue($formatter_about['name']);
-				$preview->setValue($formatter->run($_POST['formatText']));
+				$response['formatter'] = $formatter_about['name'];
+				$response['preview'] = $formatter->run($_POST['formatText']);
 			}
 
-			$this->_Result->appendChild($format_name);
-			$this->_Result->appendChild($preview);
+			$this->_Result = $response;
 		}
-
 	}

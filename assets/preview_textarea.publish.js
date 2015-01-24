@@ -8,7 +8,7 @@
 jQuery(document).ready(function($) {
 	// Add a "Preview" link next to each textarea, as well as divs we'll be using to store stuff
 	$('body').append('<div id="preview-textarea"><div id="preview-textarea-title"></div><div id="preview-textarea-content"></div></div><div id="preview-textarea-overlay"></div>');
-	$('textarea').before('<a class="preview-textarea-button">Preview</a>');
+	$('textarea').after('<a class="preview-textarea-button">Preview</a>');
 
 	$('a.preview-textarea-button').click(function(event) {
 		event.preventDefault();
@@ -18,24 +18,23 @@ jQuery(document).ready(function($) {
 		}
 		else {
 			// Let's drop some AJAX.
-			$.ajax({
-				type: 'POST',
-				dataType: 'html',
-				url: Symphony.Context.get('root') + '/symphony/extension/preview_textarea/preview/',
-				data: { 
+			$.post(
+				Symphony.Context.get('root') + '/symphony/extension/preview_textarea/preview/',
+				{ 
 					formatText: thePackage.val(),
-					formatter: thePackage.attr('class')
+					formatter: thePackage.attr('class'),
+					xsrf: $('input[name=xsrf]').val()
 				},
-				success: function(xml) {
+				function(response) {
 					var windowHeight = $(window.top).height();
 					var windowWidth = $(window.top).width();
 					
 					var fieldLabel = thePackage.parent().clone().children().remove().end().text();
-					var formatter_name = ($(xml).find("formatter").text() == 'None') ? 'no formatter' : 'the <em>' + $(xml).find("formatter").text() + '</em> formatter';
+					var formatter_name = (response.formatter == '') ? 'no formatter' : 'the <em>' + response.formatter + '</em> formatter';
 					$('#preview-textarea-title', top.document).html('Preview of <em>' + fieldLabel + '</em> using ' + formatter_name + ' <a title="Close preview">Close</a>');
 
 					// Magic to determine the width and height of the preview box and the overlay
-					$('#preview-textarea-content', top.document).html(($(xml).find("preview").html()));
+					$('#preview-textarea-content', top.document).html(response.preview);
 					var previewTop = windowHeight/2 - $('#preview-textarea', top.document).height()/2;
 					if(previewTop < 0) { previewTop = 100; }
 					$('#preview-textarea', top.document).css({
@@ -51,9 +50,8 @@ jQuery(document).ready(function($) {
 					$('#preview-textarea-title a, #preview-textarea-overlay', top.document).click(function() {
 						$('#preview-textarea, #preview-textarea-overlay', top.document).fadeOut();
 					});
-				},
-				cache: false
-			});
+				}
+			);
 		}
 	});
 });
